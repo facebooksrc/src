@@ -1,7 +1,12 @@
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
 import java.util.LinkedList;
 
 
@@ -29,7 +34,9 @@ public class Elearning {
 			//retrieve all 40 students
 			for(int j=0;j<listFilenames.size();j++)
 			{
-				BufferedReader eachPerson =  new BufferedReader(new FileReader("./data/"+(String) listFilenames.get(j)));
+				//BufferedReader eachPerson =  new BufferedReader(new FileReader("./data/"+(String) listFilenames.get(j),"UTF-8"));
+				BufferedReader eachPerson = new BufferedReader(new InputStreamReader(new FileInputStream("./data/"+(String) listFilenames.get(j)), "UTF-8"));
+				//Writer writer = new OutputStreamWriter(new FileOutputStream("activity"+index+type+"out.txt"),"MS949");
 				
 				String line="";
 				while((line = eachPerson.readLine()) != null)
